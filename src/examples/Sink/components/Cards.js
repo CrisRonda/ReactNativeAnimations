@@ -24,6 +24,7 @@ const FAKE = [
     avatarTitle: 'Wendell Hilll',
   },
 ];
+
 const Cards = () => {
   const onLike = title => {
     Alert.alert(`Like ${title}`, 'You like this card');
@@ -34,8 +35,7 @@ const Cards = () => {
   const onShare = async title => {
     try {
       const result = await Share.share({
-        message:
-          'React Native | A framework for building native apps using React',
+        message: `Share ${title}`,
       });
       if (result.action === Share.sharedAction) {
         Alert.alert('Ready', 'You rocks when share information');
@@ -44,6 +44,23 @@ const Cards = () => {
       Alert.alert('Error', 'We can not open apps to share');
     }
   };
+  const options = [
+    {
+      id: 85213,
+      title: 'Remove',
+      onPress: ({title}) => Alert.alert('Remove', `Remove ${title}`),
+    },
+    {
+      id: 71659,
+      title: 'Edit',
+      onPress: ({title}) => Alert.alert('Edit', `Edit ${title}`),
+    },
+    {
+      id: 3747,
+      title: 'Share',
+      onPress: ({title}) => onShare(title),
+    },
+  ];
 
   return (
     <>
@@ -55,6 +72,7 @@ const Cards = () => {
           onLike={() => onLike(item.title)}
           onDislike={() => onDislike(item.title)}
           onShare={() => onShare(item.title)}
+          options={options}
         />
       ))}
     </>

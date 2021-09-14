@@ -1,5 +1,10 @@
-import React, {useMemo} from 'react';
-import {View} from 'react-native';
+import React, {useMemo, useRef, useState} from 'react';
+import {
+  View,
+  Animated,
+  TouchableWithoutFeedback,
+  TouchableOpacity,
+} from 'react-native';
 import FastImage from 'react-native-fast-image';
 import {useTheme} from '@theme';
 import Text from '../Text';
@@ -18,52 +23,93 @@ const Card = ({
   onLike,
   onDislike,
   onShare,
+  ...rest
 }) => {
   const {spacing, colors, pxToDp} = useTheme();
+  const opacity = useRef(new Animated.Value(0)).current;
+  const [showOptions, setShowOptions] = useState(false);
   const styleScreen = useMemo(
     () => styles({spacing, colors, pxToDp}),
     [spacing, colors, pxToDp],
   );
-
+  const toogleOptions = () => {
+    setShowOptions(bef => !bef);
+    Animated.timing(opacity, {
+      toValue: showOptions ? 0 : 1,
+      duration: 500,
+      useNativeDriver: true,
+    }).start();
+  };
+  const onHideOptions = () => {
+    setShowOptions(false);
+    Animated.timing(opacity, {
+      toValue: 0,
+      duration: 500,
+      useNativeDriver: true,
+    }).start();
+  };
   return (
-    <View style={[styleScreen.container]}>
-      <View style={[styleScreen.row, styleScreen.spaceBetween]}>
-        <View style={[styleScreen.row]}>
-          <Avatar
-            title={avatarTitle}
-            imageURL={avatarImage}
-            enableRandomColor={enableRandomColorAvatar}
-          />
-          <View>
-            <Text ml={16} variant="h5">
-              {title}
-            </Text>
-            <Text ml={16} variant="body1">
-              {subtitle}
-            </Text>
+    <TouchableWithoutFeedback onPress={onHideOptions}>
+      <View style={[styleScreen.container]}>
+        <View style={[styleScreen.row, styleScreen.spaceBetween]}>
+          <View style={[styleScreen.row]}>
+            <Avatar
+              title={avatarTitle}
+              imageURL={avatarImage}
+              enableRandomColor={enableRandomColorAvatar}
+            />
+            <View>
+              <Text ml={16} variant="h5">
+                {title}
+              </Text>
+              <Text ml={16} variant="body1">
+                {subtitle}
+              </Text>
+            </View>
           </View>
+          <IconButton
+            name="more-vertical"
+            set="Feather"
+            color={colors.secondary.dark}
+            onPress={toogleOptions}
+          />
+          <Animated.FlatList
+            style={[styleScreen.options, {opacity}]}
+            data={options}
+            nestedScrollEnabled
+            keyExtractor={item => item.id}
+            renderItem={({item}) => (
+              <TouchableOpacity
+                onPress={() =>
+                  item.onPress({title, subtitle, imageURL, ...rest})
+                }>
+                <View style={styleScreen.optionItem}>
+                  <Text variant="button1">{item.title}</Text>
+                </View>
+              </TouchableOpacity>
+            )}
+          />
         </View>
-        <IconButton
-          name="more-vertical"
-          set="Feather"
-          color={colors.secondary.dark}
+        <FastImage
+          style={[styleScreen.image]}
+          source={{
+            uri: imageURL,
+          }}
+          resizeMode={FastImage.resizeMode.cover}
         />
-      </View>
-      <FastImage
-        style={[styleScreen.image]}
-        source={{
-          uri: imageURL,
-        }}
-        resizeMode={FastImage.resizeMode.cover}
-      />
-      <View style={[styleScreen.row, styleScreen.spaceBetween]}>
-        <View style={[styleScreen.row]}>
-          <IconButton name="like1" style={styleScreen.icon} onPress={onLike} />
-          <IconButton name="dislike1" onPress={onDislike} />
+        <View style={[styleScreen.row, styleScreen.spaceBetween]}>
+          <View style={[styleScreen.row]}>
+            <IconButton
+              name="like1"
+              style={styleScreen.icon}
+              onPress={onLike}
+            />
+            <IconButton name="dislike1" onPress={onDislike} />
+          </View>
+          <IconButton name="sharealt" onPress={onShare} />
         </View>
-        <IconButton name="sharealt" onPress={onShare} />
       </View>
-    </View>
+    </TouchableWithoutFeedback>
   );
 };
 

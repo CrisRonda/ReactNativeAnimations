@@ -18,6 +18,7 @@ const style = ({spacing, colors, pxToDp}) =>
       shadowRadius: 2,
     },
     row: {
+      position: 'relative',
       flexDirection: 'row',
       flex: 1,
       alignItems: 'center',
@@ -34,6 +35,26 @@ const style = ({spacing, colors, pxToDp}) =>
       width: '100%',
       backgroundColor: 'green',
       marginBottom: spacing.medium,
+      zIndex: -1,
+    },
+    options: {
+      width: '45%',
+      backgroundColor: colors.background,
+      padding: spacing.medium,
+      height: 'auto',
+      minHeight: pxToDp(123),
+      maxHeight: pxToDp(350),
+      position: 'absolute',
+      zIndex: 888,
+      right: pxToDp(20),
+      top: '70%',
+      borderRadius: spacing.large,
+      borderWidth: StyleSheet.hairlineWidth,
+      borderColor: colors.grey.light,
+    },
+    optionItem: {
+      height: pxToDp(120),
+      paddingVertical: spacing.small,
     },
   });
 export default style;

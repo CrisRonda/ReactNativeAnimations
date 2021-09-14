@@ -1,7 +1,8 @@
 import React, {useMemo} from 'react';
-import {Keyboard, SafeAreaView, ScrollView} from 'react-native';
+import {Keyboard, SafeAreaView} from 'react-native';
 import styles from './style';
 import {useTheme} from '@theme';
+import Animated from 'react-native-reanimated';
 
 const SwipeContainer = ({children, onRelease, style, ...props}) => {
   const {spacing, colors} = useTheme();
@@ -23,9 +24,9 @@ const SwipeContainer = ({children, onRelease, style, ...props}) => {
       style={[styleScreen.container]}
       onResponderRelease={() => true}
       onStartShouldSetResponder={onReleaseView}>
-      <ScrollView style={[styleScreen.content, style]} {...props}>
+      <Animated.ScrollView style={[styleScreen.content, style]} {...props}>
         {children}
-      </ScrollView>
+      </Animated.ScrollView>
     </SafeAreaView>
   );
 };

@@ -19,9 +19,9 @@ const Text = ({
   const variantColor = _.get(colors, color, colors.text);
   const customSize = textSize && {fontSize: pxToDp(textSize)};
   const customMb = mb && {marginBottom: pxToDp(mb)};
-  const customMr = mr && {marginBottom: pxToDp(mr)};
-  const customMl = ml && {marginBottom: pxToDp(ml)};
-  const customMt = mt && {marginBottom: pxToDp(mt)};
+  const customMr = mr && {marginRight: pxToDp(mr)};
+  const customMl = ml && {marginLeft: pxToDp(ml)};
+  const customMt = mt && {marginTop: pxToDp(mt)};
   return (
     <TextRN
       style={[

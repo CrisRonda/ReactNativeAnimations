@@ -34,6 +34,15 @@ export const colors = {
     main: '#666',
     dark: '#333',
   },
+  avatarBackgrounds: [
+    '#2196f3',
+    '#81c784',
+    '#f48fb1',
+    '#ffb74d',
+    '#BC44CC',
+    '#EE7B0F',
+    '#110B02',
+  ],
 };
 
 export const lightColors = {

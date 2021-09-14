@@ -1,20 +1,64 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-import {createStackNavigator} from '@react-navigation/stack';
+import {createDrawerNavigator} from '@react-navigation/drawer';
+
 import StackAnimations from './1_Animations';
 import SinkScreen from '@sink';
-const MainStack = createStackNavigator();
+import {useTheme} from '@theme';
+import Icon from '@components/Icon';
 
+const MainDrawer = createDrawerNavigator();
+const buildOptions = ({name, icon, set}) => ({
+  drawerIcon: () => <Icon name={icon} set={set} />,
+  drawerLabel: name,
+});
 const MainNavigation = () => {
+  const {colors, pxToDp} = useTheme();
+  const {background, grey, primary, text} = colors;
+
   return (
     <NavigationContainer>
-      <MainStack.Navigator
+      <MainDrawer.Navigator
+        initialRouteName="StackAnimations"
         screenOptions={{
-          header: () => null,
+          drawerStyle: {
+            backgroundColor: background,
+          },
+          headerStyle: {
+            backgroundColor: background,
+          },
+          headerTitleStyle: {
+            color: text,
+          },
+          drawerLabelStyle: {
+            color: text,
+          },
+          drawerActiveTintColor: primary.main,
+          overlayColor: `${primary.light}44`,
+          drawerInactiveTintColor: grey.main,
+          drawerItemStyle: {
+            padding: pxToDp(16),
+          },
         }}>
-        <MainStack.Screen component={SinkScreen} name="SinkScreen" />
-        <MainStack.Screen component={StackAnimations} name="StackAnimations" />
-      </MainStack.Navigator>
+        <MainDrawer.Screen
+          component={SinkScreen}
+          name="SinkScreen"
+          options={buildOptions({
+            name: 'Sink',
+            icon: 'select1',
+            set: 'AntDesign',
+          })}
+        />
+        <MainDrawer.Screen
+          component={StackAnimations}
+          name="StackAnimations"
+          options={buildOptions({
+            name: 'Basics',
+            icon: 'bulb1',
+            set: 'AntDesign',
+          })}
+        />
+      </MainDrawer.Navigator>
     </NavigationContainer>
   );
 };

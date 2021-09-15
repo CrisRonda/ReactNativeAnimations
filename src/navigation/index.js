@@ -6,6 +6,7 @@ import StackAnimations from './1_Animations';
 import SinkScreen from '@sink';
 import {useTheme} from '@theme';
 import Icon from '@components/Icon';
+import ColorPicker from '@2_ColorPicker';
 
 const MainDrawer = createDrawerNavigator();
 const buildOptions = ({name, icon, set}) => ({
@@ -56,6 +57,15 @@ const MainNavigation = () => {
             name: 'Basics',
             icon: 'bulb1',
             set: 'AntDesign',
+          })}
+        />
+        <MainDrawer.Screen
+          component={ColorPicker}
+          name="ColorPicker"
+          options={buildOptions({
+            name: 'Color Picker',
+            icon: 'ios-color-palette-sharp',
+            set: 'Ionicons',
           })}
         />
       </MainDrawer.Navigator>

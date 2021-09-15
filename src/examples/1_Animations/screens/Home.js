@@ -13,6 +13,10 @@ const data = [
     title: 'Scroll Animation',
     route: 'ScrollAnimation',
   },
+  {
+    title: 'Pan Gesture',
+    route: 'PanGesture',
+  },
 ];
 const Home = () => {
   const {navigate} = useNavigation();

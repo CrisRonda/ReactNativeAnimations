@@ -25,6 +25,10 @@ const data = [
     title: 'Tap Gesture',
     route: 'TapGesture',
   },
+  {
+    title: 'Pinch Gesture',
+    route: 'PinchGesture',
+  },
 ];
 const Home = () => {
   const {navigate} = useNavigation();

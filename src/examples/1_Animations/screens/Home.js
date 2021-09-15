@@ -17,6 +17,10 @@ const data = [
     title: 'Pan Gesture',
     route: 'PanGesture',
   },
+  {
+    title: 'Color Interpolate',
+    route: 'ColorInterpolate',
+  },
 ];
 const Home = () => {
   const {navigate} = useNavigation();

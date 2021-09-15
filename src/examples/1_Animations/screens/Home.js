@@ -21,6 +21,10 @@ const data = [
     title: 'Color Interpolate',
     route: 'ColorInterpolate',
   },
+  {
+    title: 'Tap Gesture',
+    route: 'TapGesture',
+  },
 ];
 const Home = () => {
   const {navigate} = useNavigation();

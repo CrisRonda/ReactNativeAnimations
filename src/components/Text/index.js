@@ -2,6 +2,7 @@ import React from 'react';
 import {useTheme} from '@theme';
 import {Text as TextRN} from 'react-native';
 import _ from 'lodash';
+import Animated from 'react-native-reanimated';
 const Text = ({
   children,
   variant,
@@ -12,6 +13,7 @@ const Text = ({
   mr,
   ml,
   mt,
+  animated,
   ...props
 }) => {
   const {colors, typography, pxToDp} = useTheme();
@@ -22,8 +24,9 @@ const Text = ({
   const customMr = mr && {marginRight: pxToDp(mr)};
   const customMl = ml && {marginLeft: pxToDp(ml)};
   const customMt = mt && {marginTop: pxToDp(mt)};
+  const TextComponent = animated ? Animated.Text : TextRN;
   return (
-    <TextRN
+    <TextComponent
       style={[
         variantStyle,
         {color: variantColor},
@@ -36,7 +39,7 @@ const Text = ({
       ]}
       {...props}>
       {children}
-    </TextRN>
+    </TextComponent>
   );
 };
 

@@ -41,12 +41,15 @@ const Card = ({
     }).start();
   };
   const onHideOptions = () => {
-    setShowOptions(false);
     Animated.timing(opacity, {
       toValue: 0,
       duration: 500,
       useNativeDriver: true,
-    }).start();
+    }).start(({finished}) => {
+      if (finished) {
+        setShowOptions(false);
+      }
+    });
   };
   return (
     <TouchableWithoutFeedback onPress={onHideOptions}>
@@ -58,7 +61,7 @@ const Card = ({
               imageURL={avatarImage}
               enableRandomColor={enableRandomColorAvatar}
             />
-            <View>
+            <View style={styleScreen.header}>
               <Text ml={16} variant="h5">
                 {title}
               </Text>
@@ -70,25 +73,29 @@ const Card = ({
           <IconButton
             name="more-vertical"
             set="Feather"
-            color={colors.secondary.dark}
             onPress={toogleOptions}
           />
-          <Animated.FlatList
-            style={[styleScreen.options, {opacity}]}
-            data={options}
-            nestedScrollEnabled
-            keyExtractor={item => item.id}
-            renderItem={({item}) => (
-              <TouchableOpacity
-                onPress={() =>
-                  item.onPress({title, subtitle, imageURL, ...rest})
-                }>
-                <View style={styleScreen.optionItem}>
-                  <Text variant="button1">{item.title}</Text>
-                </View>
-              </TouchableOpacity>
-            )}
-          />
+          {showOptions ? (
+            <Animated.FlatList
+              style={[styleScreen.options, {opacity}]}
+              data={options}
+              nestedScrollEnabled
+              keyExtractor={item => item.id}
+              renderItem={({item}) => (
+                <TouchableOpacity
+                  onPress={() => {
+                    onHideOptions();
+                    item.onPress({title, subtitle, imageURL, ...rest});
+                  }}>
+                  <View style={styleScreen.optionItem}>
+                    <Text variant="button1">{item.title}</Text>
+                  </View>
+                </TouchableOpacity>
+              )}
+            />
+          ) : (
+            <></>
+          )}
         </View>
         <FastImage
           style={[styleScreen.image]}
@@ -100,13 +107,27 @@ const Card = ({
         <View style={[styleScreen.row, styleScreen.spaceBetween]}>
           <View style={[styleScreen.row]}>
             <IconButton
-              name="like1"
+              set="AntDesign"
+              size={64}
+              name="hearto"
               style={styleScreen.icon}
               onPress={onLike}
             />
-            <IconButton name="dislike1" onPress={onDislike} />
+            <IconButton
+              set="FontAwesome"
+              size={64}
+              name="comment-o"
+              style={styleScreen.icon}
+              onPress={onDislike}
+            />
+            <IconButton
+              set="Ionicons"
+              size={64}
+              name="paper-plane-outline"
+              onPress={onShare}
+            />
           </View>
-          <IconButton name="sharealt" onPress={onShare} />
+          <IconButton set="Feather" size={64} name="bookmark" />
         </View>
       </View>
     </TouchableWithoutFeedback>

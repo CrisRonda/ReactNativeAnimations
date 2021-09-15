@@ -3,14 +3,12 @@ import {StyleSheet} from 'react-native';
 const style = ({spacing, colors, pxToDp}) =>
   StyleSheet.create({
     container: {
-      flex: 1,
       backgroundColor: colors.background,
       width: '100%',
       minHeight: pxToDp(349),
       height: 'auto',
       borderRadius: spacing.small,
       marginBottom: spacing.medium,
-      padding: spacing.small,
       elevation: 4,
       shadowColor: colors.grey.main,
       shadowOffset: {width: 1, height: 3},
@@ -20,9 +18,9 @@ const style = ({spacing, colors, pxToDp}) =>
     row: {
       position: 'relative',
       flexDirection: 'row',
-      flex: 1,
       alignItems: 'center',
       marginBottom: spacing.small,
+      padding: spacing.small,
     },
     spaceBetween: {
       justifyContent: 'space-between',
@@ -31,7 +29,7 @@ const style = ({spacing, colors, pxToDp}) =>
       marginRight: spacing.medium,
     },
     image: {
-      height: pxToDp(400),
+      height: pxToDp(600),
       width: '100%',
       backgroundColor: 'green',
       marginBottom: spacing.medium,
@@ -55,6 +53,9 @@ const style = ({spacing, colors, pxToDp}) =>
     optionItem: {
       height: pxToDp(120),
       paddingVertical: spacing.small,
+    },
+    header: {
+      marginLeft: spacing.large,
     },
   });
 export default style;

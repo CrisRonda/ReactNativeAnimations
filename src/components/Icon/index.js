@@ -16,7 +16,7 @@ import {useTheme} from '@theme';
 export default function Icon({set, size = 56, color, ...props}) {
   const {pxToDp, colors} = useTheme();
   const sizeDp = pxToDp(size);
-  const colorIcon = color ? color : colors.primary.main;
+  const colorIcon = color ? color : colors.grey.light;
 
   switch (set) {
     case 'AntDesign':

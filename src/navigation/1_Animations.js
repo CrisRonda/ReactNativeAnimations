@@ -7,6 +7,7 @@ import PanGesture from '@1_Animations/screens/PanGesture';
 import ColorInterpolate from '@1_Animations/screens/ColorInterpolate';
 import TapGesture from '@1_Animations/screens/TapGesture';
 import PinchGesture from '@1_Animations/screens/PinchGesture';
+import Worklets from '@1_Animations/screens/Worklets';
 
 const Stack = createStackNavigator();
 
@@ -22,6 +23,7 @@ const StackAnimations = () => {
       <Stack.Screen component={PanGesture} name="PanGesture" />
       <Stack.Screen component={ColorInterpolate} name="ColorInterpolate" />
       <Stack.Screen component={TapGesture} name="TapGesture" />
+      <Stack.Screen component={Worklets} name="Worklets" />
       <Stack.Screen component={PinchGesture} name="PinchGesture" />
     </Stack.Navigator>
   );

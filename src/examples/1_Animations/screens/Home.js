@@ -6,6 +6,10 @@ import {useNavigation} from '@react-navigation/native';
 
 const data = [
   {
+    title: 'Worklets',
+    route: 'Worklets',
+  },
+  {
     title: 'Infinite Animation',
     route: 'InfiniteAnimation',
   },

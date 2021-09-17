@@ -5,6 +5,7 @@ import {colors, lightColors, darkColors} from './colors';
 import typography from './typography';
 import spacing from './spacing';
 import {pxToDp} from './lib';
+import useDimensions from './dimensions';
 
 const initialState = {
   isDark: false,
@@ -19,6 +20,7 @@ export const ThemeContext = createContext(initialState);
 const ThemeProvider = props => {
   // Getting the device color theme, this will also work with react-native-web
   const colorScheme = useColorScheme(); // Can be dark | light | no-preference
+  const {dimensions} = useDimensions();
   /*
    * To enable changing the app theme dynamicly in the app (run-time)
    * we're gonna use useState so we can override the default device theme
@@ -37,6 +39,7 @@ const ThemeProvider = props => {
     colors: {...colors, ...(isDark ? darkColors : lightColors)},
     // Overrides the isDark value will cause re-render inside the context.
     setScheme: value => setIsDark(value),
+    dimensions,
   };
 
   return (

@@ -7,6 +7,7 @@ import SinkScreen from '@sink';
 import {useTheme} from '@theme';
 import Icon from '@components/Icon';
 import ColorPicker from '@2_ColorPicker';
+import CardTransition from '@examples/4_CardTransition';
 
 const MainDrawer = createDrawerNavigator();
 const buildOptions = ({name, icon, set}) => ({
@@ -20,7 +21,7 @@ const MainNavigation = () => {
   return (
     <NavigationContainer>
       <MainDrawer.Navigator
-        initialRouteName="StackAnimations"
+        initialRouteName="CardTransition"
         screenOptions={{
           drawerStyle: {
             backgroundColor: background,
@@ -64,6 +65,15 @@ const MainNavigation = () => {
           name="ColorPicker"
           options={buildOptions({
             name: 'Color Picker',
+            icon: 'ios-color-palette-sharp',
+            set: 'Ionicons',
+          })}
+        />
+        <MainDrawer.Screen
+          component={CardTransition}
+          name="CardTransition"
+          options={buildOptions({
+            name: 'Card Transition',
             icon: 'ios-color-palette-sharp',
             set: 'Ionicons',
           })}

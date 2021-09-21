@@ -1,8 +1,9 @@
 import React from 'react';
-import {FlatList, View, TouchableWithoutFeedback} from 'react-native';
+import {FlatList, View} from 'react-native';
 import Container from '@components/Container';
 import Text from '@components/Text';
 import {useNavigation} from '@react-navigation/native';
+import {TouchableOpacity} from 'react-native-gesture-handler';
 
 const data = [
   {
@@ -45,11 +46,11 @@ const Home = () => {
         data={data}
         keyExtractor={item => item.route}
         renderItem={({item}) => (
-          <TouchableWithoutFeedback onPress={() => onNavigate(item.route)}>
+          <TouchableOpacity onPress={() => onNavigate(item.route)}>
             <View>
               <Text variant="h3">{item.title}</Text>
             </View>
-          </TouchableWithoutFeedback>
+          </TouchableOpacity>
         )}
       />
     </Container>

@@ -8,6 +8,7 @@ import {useTheme} from '@theme';
 import Icon from '@components/Icon';
 import ColorPicker from '@2_ColorPicker';
 import CardTransition from '@examples/4_CardTransition';
+import Yoga from '@examples/5_Yoga';
 
 const MainDrawer = createDrawerNavigator();
 const buildOptions = ({name, icon, set}) => ({
@@ -21,7 +22,7 @@ const MainNavigation = () => {
   return (
     <NavigationContainer>
       <MainDrawer.Navigator
-        initialRouteName="CardTransition"
+        initialRouteName="Yoga"
         screenOptions={{
           drawerStyle: {
             backgroundColor: background,
@@ -74,6 +75,15 @@ const MainNavigation = () => {
           name="CardTransition"
           options={buildOptions({
             name: 'Card Transition',
+            icon: 'ios-color-palette-sharp',
+            set: 'Ionicons',
+          })}
+        />
+        <MainDrawer.Screen
+          component={Yoga}
+          name="Yoga"
+          options={buildOptions({
+            name: 'Yoga',
             icon: 'ios-color-palette-sharp',
             set: 'Ionicons',
           })}

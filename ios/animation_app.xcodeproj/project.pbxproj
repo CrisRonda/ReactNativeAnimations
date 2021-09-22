@@ -11,6 +11,7 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		25C27EDF26FBD0CF002D59C4 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C27EDE26FBD0CF002D59C4 /* File.swift */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		8B5138A8B51EB596E67C0D2B /* libPods-animation_app-animation_appTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 731D1A05136C24EABDFE0573 /* libPods-animation_app-animation_appTests.a */; };
 		F9216E983F2A5A07A262A00B /* libPods-animation_app.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F67C088A55FFF028222453EB /* libPods-animation_app.a */; };
@@ -37,6 +38,8 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = animation_app/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = animation_app/main.m; sourceTree = "<group>"; };
 		21EC7F49343394D352CFF5CA /* Pods-animation_app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-animation_app.release.xcconfig"; path = "Target Support Files/Pods-animation_app/Pods-animation_app.release.xcconfig"; sourceTree = "<group>"; };
+		25C27EDD26FBD0CF002D59C4 /* animation_app-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "animation_app-Bridging-Header.h"; sourceTree = "<group>"; };
+		25C27EDE26FBD0CF002D59C4 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		3A67CC6E3343DCCC40907808 /* Pods-animation_app-animation_appTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-animation_app-animation_appTests.release.xcconfig"; path = "Target Support Files/Pods-animation_app-animation_appTests/Pods-animation_app-animation_appTests.release.xcconfig"; sourceTree = "<group>"; };
 		731D1A05136C24EABDFE0573 /* libPods-animation_app-animation_appTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-animation_app-animation_appTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7531DEF6C82885959990CD4C /* Pods-animation_app-animation_appTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-animation_app-animation_appTests.debug.xcconfig"; path = "Target Support Files/Pods-animation_app-animation_appTests/Pods-animation_app-animation_appTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -127,12 +130,14 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				25C27EDE26FBD0CF002D59C4 /* File.swift */,
 				13B07FAE1A68108700A75B9A /* animation_app */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* animation_appTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				58FF5D3928FC9EDCAE6F9621 /* Pods */,
+				25C27EDD26FBD0CF002D59C4 /* animation_app-Bridging-Header.h */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -207,7 +212,7 @@
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
-						LastSwiftMigration = 1120;
+						LastSwiftMigration = 1300;
 					};
 				};
 			};
@@ -411,6 +416,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
+				25C27EDF26FBD0CF002D59C4 /* File.swift in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -430,6 +436,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7531DEF6C82885959990CD4C /* Pods-animation_app-animation_appTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -457,6 +464,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3A67CC6E3343DCCC40907808 /* Pods-animation_app-animation_appTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = animation_appTests/Info.plist;
@@ -498,6 +506,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.cristian.ronda.animation-app";
 				PRODUCT_NAME = animation_app;
+				SWIFT_OBJC_BRIDGING_HEADER = "animation_app-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -524,6 +533,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.cristian.ronda.animation-app";
 				PRODUCT_NAME = animation_app;
+				SWIFT_OBJC_BRIDGING_HEADER = "animation_app-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};

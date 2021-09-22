@@ -9,6 +9,7 @@ import Icon from '@components/Icon';
 import ColorPicker from '@2_ColorPicker';
 import CardTransition from '@examples/4_CardTransition';
 import Yoga from '@examples/5_Yoga';
+import DVDAnimation from '@examples/6_DVDAnimation';
 
 const MainDrawer = createDrawerNavigator();
 const buildOptions = ({name, icon, set}) => ({
@@ -22,7 +23,7 @@ const MainNavigation = () => {
   return (
     <NavigationContainer>
       <MainDrawer.Navigator
-        initialRouteName="Yoga"
+        initialRouteName="DVDAnimation"
         screenOptions={{
           drawerStyle: {
             backgroundColor: background,
@@ -84,6 +85,15 @@ const MainNavigation = () => {
           name="Yoga"
           options={buildOptions({
             name: 'Yoga',
+            icon: 'ios-color-palette-sharp',
+            set: 'Ionicons',
+          })}
+        />
+        <MainDrawer.Screen
+          component={DVDAnimation}
+          name="DVDAnimation"
+          options={buildOptions({
+            name: 'DVDAnimation',
             icon: 'ios-color-palette-sharp',
             set: 'Ionicons',
           })}

@@ -7,6 +7,7 @@ import SinkScreen from '@sink';
 import {useTheme} from '@theme';
 import Icon from '@components/Icon';
 import ColorPicker from '@2_ColorPicker';
+import Video from '@examples/3_Video/screens';
 import CardTransition from '@examples/4_CardTransition';
 import Yoga from '@examples/5_Yoga';
 import DVDAnimation from '@examples/6_DVDAnimation';
@@ -23,7 +24,7 @@ const MainNavigation = () => {
   return (
     <NavigationContainer>
       <MainDrawer.Navigator
-        initialRouteName="DVDAnimation"
+        initialRouteName="Video"
         screenOptions={{
           drawerStyle: {
             backgroundColor: background,
@@ -42,6 +43,11 @@ const MainNavigation = () => {
           drawerInactiveTintColor: grey.main,
           drawerItemStyle: {
             padding: pxToDp(16),
+          },
+          header: ({route}) => {
+            if (route.name === 'Video') {
+              return null;
+            }
           },
         }}>
         <MainDrawer.Screen
@@ -94,6 +100,15 @@ const MainNavigation = () => {
           name="DVDAnimation"
           options={buildOptions({
             name: 'DVDAnimation',
+            icon: 'ios-color-palette-sharp',
+            set: 'Ionicons',
+          })}
+        />
+        <MainDrawer.Screen
+          component={Video}
+          name="Video"
+          options={buildOptions({
+            name: 'Video',
             icon: 'ios-color-palette-sharp',
             set: 'Ionicons',
           })}

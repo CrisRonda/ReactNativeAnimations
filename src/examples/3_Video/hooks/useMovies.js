@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react';
-import {getMovies} from '../services';
+import {getMovies, genres} from '../services';
 
 const FAKE_MOVIES = [
   {
@@ -279,7 +279,7 @@ const useMovies = () => {
     fetchData();
   }, [movies]);
 
-  return {movies};
+  return {movies, genres: Object.values(genres).slice(0, 5)};
 };
 
 export default useMovies;

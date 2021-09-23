@@ -3,7 +3,6 @@ import {View, FlatList} from 'react-native';
 import {useTheme} from '@theme';
 import LinearGradient from 'react-native-linear-gradient';
 import styles from './style';
-import useMovies from '../../hooks/useMovies';
 import CardMovie from '../CardMovie';
 import Reanimated, {
   useAnimatedScrollHandler,
@@ -13,10 +12,9 @@ import Dots from '../Dots';
 import TitleMovie from '../TitleMovie';
 
 const AnimatedFlatList = Reanimated.createAnimatedComponent(FlatList);
-const Tabs = () => {
+const Tabs = ({data = []}) => {
   const {dimensions, pxToDp} = useTheme();
-  const {movies} = useMovies();
-  const data = movies.slice(0, 4);
+
   const translateX = useSharedValue(0);
 
   const styleScreen = useMemo(

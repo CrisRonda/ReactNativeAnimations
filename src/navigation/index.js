@@ -7,7 +7,7 @@ import SinkScreen from '@sink';
 import {useTheme} from '@theme';
 import Icon from '@components/Icon';
 import ColorPicker from '@2_ColorPicker';
-import Video from '@examples/3_Video/screens';
+import Video from '@examples/3_Video/navigation';
 import CardTransition from '@examples/4_CardTransition';
 import Yoga from '@examples/5_Yoga';
 import DVDAnimation from '@examples/6_DVDAnimation';

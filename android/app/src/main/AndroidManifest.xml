@@ -10,6 +10,9 @@
       android:roundIcon="@mipmap/ic_launcher_round"
       android:allowBackup="false"
       android:theme="@style/AppTheme">
+      <meta-data
+            android:name="JW_LICENSE_KEY"
+            android:value="L+JYNim3bu9m8b6+beAffCqZuqf1rT8EZBejptwxZ4R1YMcZ0YxVK9S9m/WOdTVW" />
       <activity
         android:name=".MainActivity"
         android:label="@string/app_name"

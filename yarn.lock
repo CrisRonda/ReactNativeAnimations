@@ -5708,6 +5708,11 @@ react-native-gesture-handler@^1.10.3:
     invariant "^2.2.4"
     prop-types "^15.7.2"
 
+react-native-jw-media-player@^0.1.57:
+  version "0.1.57"
+  resolved "https://registry.yarnpkg.com/react-native-jw-media-player/-/react-native-jw-media-player-0.1.57.tgz#972bfa1add2688a8f3520bfbc87324e4c3f15ec3"
+  integrity sha512-LOkd+DnxXA1MorLlzL6tIGx3aldXp7JTavr106fqAHCUiyF5w/OdWs4wU1O2M7YJ3Kn8JtmvH3tV/+Sh0i6wWA==
+
 react-native-linear-gradient@^2.5.6:
   version "2.5.6"
   resolved "https://registry.yarnpkg.com/react-native-linear-gradient/-/react-native-linear-gradient-2.5.6.tgz#96215cbc5ec7a01247a20890888aa75b834d44a0"

@@ -35,5 +35,8 @@ allprojects {
         google()
         maven { url 'https://www.jitpack.io' }
         jcenter()
+        maven{
+            url 'https://mvn.jwplayer.com/content/repositories/releases/'
+        }
     }
 }

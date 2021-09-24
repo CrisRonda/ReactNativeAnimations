@@ -70,5 +70,7 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>JWPlayerKey</key>
+	<string>3q162vBvluDBCT8qn98c3xw4ixd1CQfCFYCb9FRzW+UyZDh0oRMmZv2XN52VPtKm</string>
 </dict>
 </plist>

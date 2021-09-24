@@ -19,6 +19,7 @@
     "react-native": "0.65.1",
     "react-native-fast-image": "^8.3.7",
     "react-native-gesture-handler": "^1.10.3",
+    "react-native-jw-media-player": "^0.1.57",
     "react-native-linear-gradient": "^2.5.6",
     "react-native-progress": "^5.0.0",
     "react-native-reanimated": "2.3.0-alpha.2",

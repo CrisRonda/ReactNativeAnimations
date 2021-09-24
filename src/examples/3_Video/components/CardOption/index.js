@@ -1,35 +1,58 @@
 import React, {memo, useMemo} from 'react';
-import {View, FlatList} from 'react-native';
+import {View, FlatList, TouchableWithoutFeedback} from 'react-native';
 import FastImage from 'react-native-fast-image';
 import Text from '@components/Text';
 import {useTheme} from '@theme';
 import styles from './styles';
+import {useNavigation} from '@react-navigation/native';
 
-const Option = ({backdrop, poster, title, description, style, index}) => {
+const Option = ({
+  backdrop,
+  poster,
+  title,
+  description,
+  style,
+  playlist,
+  index,
+}) => {
+  const {navigate} = useNavigation();
   return (
-    <View style={[style.container, index !== 0 && style.margin]}>
-      <View style={style.imageContainer}>
-        <FastImage
-          style={style.image}
-          source={{uri: index % 3 === 0 ? poster : backdrop}}
-          resizeMode={FastImage.resizeMode.cover}
-        />
-        <View style={style.triangleLeft} />
-        <View style={style.triangleRight} />
+    <TouchableWithoutFeedback
+      onPress={() =>
+        navigate('Details', {
+          selectedVideo: {
+            backdrop,
+            poster,
+            description,
+            title,
+          },
+          playlist,
+        })
+      }>
+      <View style={[style.container, index !== 0 && style.margin]}>
+        <View style={style.imageContainer}>
+          <FastImage
+            style={style.image}
+            source={{uri: index % 3 === 0 ? poster : backdrop}}
+            resizeMode={FastImage.resizeMode.cover}
+          />
+          <View style={style.triangleLeft} />
+          <View style={style.triangleRight} />
+        </View>
+        <View style={style.details}>
+          <Text
+            variant="h5"
+            color="white.main"
+            numberOfLines={1}
+            ellipsizeMode="clip">
+            {title}
+          </Text>
+          <Text color="white.light" numberOfLines={3} ellipsizeMode="tail">
+            {description}
+          </Text>
+        </View>
       </View>
-      <View style={style.details}>
-        <Text
-          variant="h5"
-          color="white.main"
-          numberOfLines={1}
-          ellipsizeMode="clip">
-          {title}
-        </Text>
-        <Text color="white.light" numberOfLines={3} ellipsizeMode="tail">
-          {description}
-        </Text>
-      </View>
-    </View>
+    </TouchableWithoutFeedback>
   );
 };
 
@@ -52,7 +75,12 @@ const CardOption = ({genre, movies}) => {
         keyExtractor={item => item.id}
         scrollEventThrottle={16}
         renderItem={({item, index}) => (
-          <Option {...item} index={index} style={styleScreen} />
+          <Option
+            {...item}
+            index={index}
+            style={styleScreen}
+            playlist={movies.slice(0, 6)}
+          />
         )}
       />
     </View>

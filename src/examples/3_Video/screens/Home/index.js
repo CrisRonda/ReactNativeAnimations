@@ -33,6 +33,7 @@ const Home = () => {
       <CustomStatusBar />
       <Header scrollY={scrollY} />
       <Animated.ScrollView
+        bounces={false}
         onScroll={scrollHandler}
         style={styles.container}
         scrollEventThrottle={16}>

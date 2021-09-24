@@ -1,6 +1,6 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
-import Animated, {useAnimatedStyle} from 'react-native-reanimated';
+import Animated, {interpolate, useAnimatedStyle} from 'react-native-reanimated';
 import Text from '@components/Text';
 import {HEIGHT_HEADER} from '../../screens/Home';
 import {pxToDp} from '@theme/lib';
@@ -8,7 +8,9 @@ import LinearGradient from 'react-native-linear-gradient';
 
 const Header = ({scrollY}) => {
   const animatedStyle = useAnimatedStyle(() => {
+    const opacity = interpolate(scrollY.value, [0, HEIGHT_HEADER], [1, 0]);
     return {
+      opacity,
       transform: [{translateY: -scrollY.value}],
     };
   });

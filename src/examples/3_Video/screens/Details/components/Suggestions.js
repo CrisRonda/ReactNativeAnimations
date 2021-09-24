@@ -30,7 +30,14 @@ const Suggestions = ({selectedVideo, playlist}) => {
       showsVerticalScrollIndicator={false}>
       <View>
         <View style={suggestionStyles.containerTitle}>
-          <Text variant="h1">{selectedVideo.title}</Text>
+          <Text
+            color="white.main"
+            variant="h1"
+            numberOfLines={2}
+            adjustsFontSizeToFit
+            style={suggestionStyles.title}>
+            {selectedVideo.title}
+          </Text>
           <IconButton
             set="Ionicons"
             size={84}
@@ -50,9 +57,9 @@ const Suggestions = ({selectedVideo, playlist}) => {
             style={suggestionStyles.image}
           />
           <Text
+            color="white.main"
             variant="button1"
-            mt={46}
-            mb={62}
+            numberOfLines={8}
             style={suggestionStyles.description}>
             {selectedVideo.description}
           </Text>
@@ -74,6 +81,7 @@ const Suggestions = ({selectedVideo, playlist}) => {
               {item.title}
             </Text>
             <Text
+              color="white.main"
               variant="button2"
               mt={16}
               mb={32}

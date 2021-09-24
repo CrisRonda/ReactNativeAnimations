@@ -30,6 +30,9 @@ export const suggestionStyles = StyleSheet.create({
     justifyContent: 'space-between',
     marginBottom: spacing.extraLarge,
   },
+  title: {
+    width: '90%',
+  },
   containerCard: {flexDirection: 'row', marginBottom: pxToDp(64)},
   image: {
     width: '30%',

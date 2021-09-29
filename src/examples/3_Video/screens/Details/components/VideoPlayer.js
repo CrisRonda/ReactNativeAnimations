@@ -31,6 +31,8 @@ const VideoPlayer = forwardRef(({selectedVideo, playlist, ...props}, ref) => {
           displayTitle
           nativeFullScreen
           nextUpDisplay
+          exitFullScreenOnPortrait
+          landscapeOnFullScreen={false}
           playlist={playList}
           onPlayerError={e => console.log('ERROR PLAYER', e)}
           onSetupPlayerError={e => console.log('ERROR PLAYER', e)}

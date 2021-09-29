@@ -14,20 +14,28 @@ const Option = ({
   style,
   playlist,
   index,
+  onPress,
 }) => {
   const {navigate} = useNavigation();
   return (
     <TouchableWithoutFeedback
       onPress={() =>
-        navigate('Details', {
-          selectedVideo: {
-            backdrop,
-            poster,
-            description,
-            title,
-          },
-          playlist,
-        })
+        onPress
+          ? onPress?.({
+              backdrop,
+              poster,
+              description,
+              title,
+            })
+          : navigate('Details', {
+              selectedVideo: {
+                backdrop,
+                poster,
+                description,
+                title,
+              },
+              playlist,
+            })
       }>
       <View style={[style.container, index !== 0 && style.margin]}>
         <View style={style.imageContainer}>
@@ -56,7 +64,7 @@ const Option = ({
   );
 };
 
-const CardOption = ({genre, movies}) => {
+const CardOption = ({genre, movies, onPress}) => {
   const {dimensions, colors, pxToDp, spacing} = useTheme();
 
   const styleScreen = useMemo(
@@ -80,6 +88,7 @@ const CardOption = ({genre, movies}) => {
             index={index}
             style={styleScreen}
             playlist={movies.slice(0, 6)}
+            onPress={onPress}
           />
         )}
       />

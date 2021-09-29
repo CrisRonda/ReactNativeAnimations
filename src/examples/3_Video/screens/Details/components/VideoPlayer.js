@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   playerContainer: {
-    height: 300,
+    height: '100%',
     width: width,
   },
   player: {

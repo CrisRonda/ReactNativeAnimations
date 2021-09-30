@@ -3,7 +3,7 @@ import {Keyboard, SafeAreaView, View} from 'react-native';
 import styles from './style';
 import {useTheme} from '@theme';
 
-const Container = ({children, onRelease, style, ...props}) => {
+const Container = ({children, onRelease, style, disablePadding, ...props}) => {
   const {spacing, colors} = useTheme();
 
   const styleScreen = useMemo(
@@ -23,7 +23,13 @@ const Container = ({children, onRelease, style, ...props}) => {
       style={[styleScreen.container]}
       onResponderRelease={() => true}
       onStartShouldSetResponder={onReleaseView}>
-      <View style={[styleScreen.content, style]} {...props}>
+      <View
+        style={[
+          styleScreen.content,
+          disablePadding && styleScreen.disablePadding,
+          style,
+        ]}
+        {...props}>
         {children}
       </View>
     </SafeAreaView>

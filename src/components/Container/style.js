@@ -12,5 +12,9 @@ const style = ({spacing, colors}) =>
       paddingHorizontal: spacing.large,
       backgroundColor: colors.background,
     },
+    disablePadding: {
+      paddingTop: 0,
+      paddingHorizontal: 0,
+    },
   });
 export default style;

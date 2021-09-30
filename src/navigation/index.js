@@ -11,6 +11,7 @@ import Video from '@examples/3_Video/navigation';
 import CardTransition from '@examples/4_CardTransition';
 import Yoga from '@examples/5_Yoga';
 import DVDAnimation from '@examples/6_DVDAnimation';
+import ListAnimation from '@examples/7_ListAnimation/navigation';
 
 const MainDrawer = createDrawerNavigator();
 const buildOptions = ({name, icon, set}) => ({
@@ -24,7 +25,7 @@ const MainNavigation = () => {
   return (
     <NavigationContainer>
       <MainDrawer.Navigator
-        initialRouteName="Video"
+        initialRouteName="ListAnimation"
         screenOptions={{
           drawerStyle: {
             backgroundColor: background,
@@ -109,6 +110,15 @@ const MainNavigation = () => {
           name="Video"
           options={buildOptions({
             name: 'Video',
+            icon: 'ios-color-palette-sharp',
+            set: 'Ionicons',
+          })}
+        />
+        <MainDrawer.Screen
+          component={ListAnimation}
+          name="ListAnimation"
+          options={buildOptions({
+            name: 'List Animation',
             icon: 'ios-color-palette-sharp',
             set: 'Ionicons',
           })}

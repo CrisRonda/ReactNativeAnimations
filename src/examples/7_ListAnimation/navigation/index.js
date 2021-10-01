@@ -8,6 +8,7 @@ const Stack = createStackNavigator();
 const StackAnimations = () => {
   return (
     <Stack.Navigator
+      initialRouteName="DetailsList"
       screenOptions={{
         header: () => null,
       }}>

@@ -52,10 +52,14 @@ const Option = ({
             variant="h5"
             color="white.main"
             numberOfLines={1}
-            ellipsizeMode="clip">
+            ellipsizeMode="tail">
             {title}
           </Text>
-          <Text color="white.light" numberOfLines={3} ellipsizeMode="tail">
+          <Text
+            variant="body2"
+            color="white.light"
+            numberOfLines={3}
+            ellipsizeMode="tail">
             {description}
           </Text>
         </View>

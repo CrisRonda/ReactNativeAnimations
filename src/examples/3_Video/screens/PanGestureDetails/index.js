@@ -1,4 +1,4 @@
-import React, {useRef, useState} from 'react';
+import React, {useRef} from 'react';
 import Animated, {
   useAnimatedGestureHandler,
   useAnimatedStyle,
@@ -7,7 +7,7 @@ import Animated, {
   withTiming,
 } from 'react-native-reanimated';
 import {
-  StatusBar,
+  Platform,
   StyleSheet,
   TouchableWithoutFeedback,
   View,
@@ -18,6 +18,9 @@ import VideoPlayer from '../Details/components/VideoPlayer';
 
 import Suggestions from '../Details/components/Suggestions';
 import IconButton from '@components/Icon/Button';
+import {pxToDp} from '@theme/lib';
+
+const limit = pxToDp(233);
 
 const PanGestureDetails = ({
   panGestureValue,
@@ -30,17 +33,14 @@ const PanGestureDetails = ({
   const {
     dimensions: {width, height},
   } = useTheme();
-  const statusBarHeight = StatusBar.currentHeight || 0;
-
   const videoHeight = width * 0.5625;
   const yOutput =
-    height - videoHeight + (videoHeight * 0.5) / 2 - 16 - statusBarHeight;
+    Platform.OS === 'android'
+      ? height - videoHeight + videoHeight / 2
+      : height - videoHeight * 0.9;
   const xOutput = (width * 0.5) / 2 - 16;
 
   const pangestureHandler = useAnimatedGestureHandler({
-    onStart: event => {
-      panGestureValue.value = event.absoluteY / 3;
-    },
     onActive: event => {
       panGestureValue.value = event.absoluteY / 3.5;
     },
@@ -55,19 +55,20 @@ const PanGestureDetails = ({
   const animatedStyle = useAnimatedStyle(() => {
     const translateYInterpolate = interpolate(
       panGestureValue.value,
-      [0, 170],
+      [0, limit],
       [0, yOutput],
       Extrapolate.CLAMP,
     );
+    console.log(translateYInterpolate);
     const translateXInterpolate = interpolate(
       panGestureValue.value,
-      [0, 170],
+      [0, limit],
       [0, xOutput],
       Extrapolate.CLAMP,
     );
     const scaleInterpolate = interpolate(
       panGestureValue.value,
-      [0, 170],
+      [0, limit],
       [1, 0.5],
       Extrapolate.CLAMP,
     );

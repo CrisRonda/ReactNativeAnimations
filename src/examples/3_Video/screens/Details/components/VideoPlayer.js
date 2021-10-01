@@ -6,6 +6,8 @@ import {generateFakeInfoMovie} from '../../../lib';
 const {width} = Dimensions.get('window');
 
 const VideoPlayer = forwardRef(({selectedVideo, playlist, ...props}, ref) => {
+  const videoHeight = width * 0.5625;
+
   const playlistItem = generateFakeInfoMovie({
     title: selectedVideo?.title,
     image: selectedVideo?.backdrop,
@@ -21,7 +23,7 @@ const VideoPlayer = forwardRef(({selectedVideo, playlist, ...props}, ref) => {
   ];
 
   return (
-    <View style={styles.subContainer}>
+    <View style={[{height: videoHeight}, styles.subContainer]}>
       <View style={styles.playerContainer}>
         <JWPlayer
           ref={ref}
@@ -29,15 +31,10 @@ const VideoPlayer = forwardRef(({selectedVideo, playlist, ...props}, ref) => {
           controls
           autostart
           displayTitle
-          nativeFullScreen
           nextUpDisplay
-          exitFullScreenOnPortrait
-          landscapeOnFullScreen={false}
           playlist={playList}
           onPlayerError={e => console.log('ERROR PLAYER', e)}
           onSetupPlayerError={e => console.log('ERROR PLAYER', e)}
-          fullScreenOnLandscape
-          portraitOnExitFullScreen
           image={selectedVideo?.image}
           stretching="uniform"
           colors={{

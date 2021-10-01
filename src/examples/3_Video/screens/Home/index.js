@@ -58,6 +58,7 @@ const Home = () => {
       <CustomStatusBar />
       <Header scrollY={scrollY} />
       <Animated.ScrollView
+        showsVerticalScrollIndicator={false}
         bounces={false}
         onScroll={scrollHandler}
         style={styles.container}

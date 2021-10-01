@@ -1,4 +1,6 @@
 package com.animation_app;
+import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 
 import com.facebook.react.ReactActivity;
@@ -17,4 +19,15 @@ public class MainActivity extends ReactActivity {
   protected String getMainComponentName() {
     return "animation_app";
   }
+
+  @Override
+  public void onPictureInPictureModeChanged(boolean isInPictureInPictureMode, Configuration newConfig) {
+    super.onPictureInPictureModeChanged(isInPictureInPictureMode, newConfig);
+
+    Intent intent = new Intent("onPictureInPictureModeChanged");
+    intent.putExtra("isInPictureInPictureMode", isInPictureInPictureMode);
+    intent.putExtra("newConfig", newConfig);
+    this.sendBroadcast(intent);
+  }
+
 }

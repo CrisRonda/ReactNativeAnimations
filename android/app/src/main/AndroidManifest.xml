@@ -9,7 +9,8 @@
       android:icon="@mipmap/ic_launcher"
       android:roundIcon="@mipmap/ic_launcher_round"
       android:allowBackup="false"
-      android:theme="@style/AppTheme">
+      android:theme="@style/AppTheme"
+      android:supportsPictureInPicture="true">
       <meta-data
             android:name="JW_LICENSE_KEY"
             android:value="L+JYNim3bu9m8b6+beAffCqZuqf1rT8EZBejptwxZ4R1YMcZ0YxVK9S9m/WOdTVW" />

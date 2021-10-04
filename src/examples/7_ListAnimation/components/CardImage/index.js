@@ -72,6 +72,7 @@ const CardImage = ({
         color="primary.dark"
         variant="button1"
         ml={64}
+        mb={16}
         style={textAnimatedStyle}>
         {subtitile}
       </Text>

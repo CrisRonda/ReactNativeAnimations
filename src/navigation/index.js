@@ -13,6 +13,7 @@ import Yoga from '@examples/5_Yoga';
 import DVDAnimation from '@examples/6_DVDAnimation';
 import ListAnimation from '@examples/7_ListAnimation/navigation';
 import GalleryApp from '@examples/8_GalleryApp/navigation';
+import BigList from '@examples/9_BigList';
 
 const MainDrawer = createDrawerNavigator();
 const buildOptions = ({name, icon, set}) => ({
@@ -35,7 +36,7 @@ const MainNavigation = () => {
   return (
     <NavigationContainer theme={navTheme}>
       <MainDrawer.Navigator
-        initialRouteName="GalleryApp"
+        initialRouteName="BigList"
         screenOptions={{
           drawerStyle: {
             backgroundColor: background,
@@ -138,6 +139,15 @@ const MainNavigation = () => {
           name="GalleryApp"
           options={buildOptions({
             name: 'Gallery',
+            icon: 'ios-color-palette-sharp',
+            set: 'Ionicons',
+          })}
+        />
+        <MainDrawer.Screen
+          component={BigList}
+          name="BigList"
+          options={buildOptions({
+            name: 'Big List',
             icon: 'ios-color-palette-sharp',
             set: 'Ionicons',
           })}

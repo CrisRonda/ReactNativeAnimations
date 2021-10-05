@@ -17,6 +17,7 @@
     "lodash": "^4.17.21",
     "react": "17.0.2",
     "react-native": "0.65.1",
+    "react-native-big-list": "^1.4.3",
     "react-native-fast-image": "^8.3.7",
     "react-native-gesture-handler": "^1.10.3",
     "react-native-jw-media-player": "^0.1.57",

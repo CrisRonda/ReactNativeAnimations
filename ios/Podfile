@@ -12,6 +12,8 @@ target 'animation_app' do
     :hermes_enabled => false
   )
 
+  pod 'RNSharedElement', :path => '../node_modules/react-native-shared-element'
+
   target 'animation_appTests' do
     inherit! :complete
     # Pods for testing

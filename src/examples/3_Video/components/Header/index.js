@@ -2,9 +2,10 @@ import React from 'react';
 import {StyleSheet, View} from 'react-native';
 import Animated, {interpolate, useAnimatedStyle} from 'react-native-reanimated';
 import Text from '@components/Text';
-import {HEIGHT_HEADER} from '../../screens/Home';
 import {pxToDp} from '@theme/lib';
 import LinearGradient from 'react-native-linear-gradient';
+
+export const HEIGHT_HEADER = pxToDp(250);
 
 const Header = ({scrollY}) => {
   const animatedStyle = useAnimatedStyle(() => {

@@ -14,6 +14,7 @@ import DVDAnimation from '@examples/6_DVDAnimation';
 import ListAnimation from '@examples/7_ListAnimation/navigation';
 import GalleryApp from '@examples/8_GalleryApp/navigation';
 import BigList from '@examples/9_BigList';
+import Onboarding from '@examples/10_LiquidAnimation/screens/Onboarding';
 
 const MainDrawer = createDrawerNavigator();
 const buildOptions = ({name, icon, set}) => ({
@@ -36,7 +37,7 @@ const MainNavigation = () => {
   return (
     <NavigationContainer theme={navTheme}>
       <MainDrawer.Navigator
-        initialRouteName="BigList"
+        initialRouteName="Onboarding"
         screenOptions={{
           drawerStyle: {
             backgroundColor: background,
@@ -146,6 +147,15 @@ const MainNavigation = () => {
         <MainDrawer.Screen
           component={BigList}
           name="BigList"
+          options={buildOptions({
+            name: 'Big List',
+            icon: 'ios-color-palette-sharp',
+            set: 'Ionicons',
+          })}
+        />
+        <MainDrawer.Screen
+          component={Onboarding}
+          name="Onboarding"
           options={buildOptions({
             name: 'Big List',
             icon: 'ios-color-palette-sharp',

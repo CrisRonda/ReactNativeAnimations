@@ -64,7 +64,7 @@ const Home = () => {
         style={styles.container}
         scrollEventThrottle={16}>
         <Tabs data={data} />
-        <Sections genres={genres} movies={movies} onPress={onPressCard} />
+        <Sections genres={genres} movies={movies} />
       </Animated.ScrollView>
       <PanGestureDetails
         panGestureValue={panGestureValue}

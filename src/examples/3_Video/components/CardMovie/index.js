@@ -30,6 +30,6 @@ const styles = ({dimensions}) =>
     image: {
       ...StyleSheet.absoluteFillObject,
       width: '100%',
-      height: 556,
+      height: dimensions.height,
     },
   });

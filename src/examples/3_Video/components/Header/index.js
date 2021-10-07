@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
   },
   header: {
     flex: 1,
-    padding: pxToDp(24),
+    // padding: pxToDp(24),
     paddingTop: pxToDp(112),
     justifyContent: 'center',
   },

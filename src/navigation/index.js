@@ -15,6 +15,7 @@ import ListAnimation from '@examples/7_ListAnimation/navigation';
 import GalleryApp from '@examples/8_GalleryApp/navigation';
 import BigList from '@examples/9_BigList';
 import Onboarding from '@examples/10_LiquidAnimation/screens/Onboarding';
+import WebVideo from '@examples/WebViewVideo';
 
 const MainDrawer = createDrawerNavigator();
 const buildOptions = ({name, icon, set}) => ({
@@ -37,7 +38,7 @@ const MainNavigation = () => {
   return (
     <NavigationContainer theme={navTheme}>
       <MainDrawer.Navigator
-        initialRouteName="Onboarding"
+        initialRouteName="WebVideo"
         screenOptions={{
           drawerStyle: {
             backgroundColor: background,
@@ -63,6 +64,15 @@ const MainNavigation = () => {
             }
           },
         }}>
+        <MainDrawer.Screen
+          component={WebVideo}
+          name="WebVideo"
+          options={buildOptions({
+            name: 'Sink',
+            icon: 'select1',
+            set: 'AntDesign',
+          })}
+        />
         <MainDrawer.Screen
           component={SinkScreen}
           name="SinkScreen"

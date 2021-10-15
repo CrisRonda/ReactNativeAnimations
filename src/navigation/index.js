@@ -38,7 +38,7 @@ const MainNavigation = () => {
   return (
     <NavigationContainer theme={navTheme}>
       <MainDrawer.Navigator
-        initialRouteName="WebVideo"
+        initialRouteName="StackAnimations"
         screenOptions={{
           drawerStyle: {
             backgroundColor: background,
@@ -65,10 +65,19 @@ const MainNavigation = () => {
           },
         }}>
         <MainDrawer.Screen
+          component={StackAnimations}
+          name="StackAnimations"
+          options={buildOptions({
+            name: 'Basics',
+            icon: 'bulb1',
+            set: 'AntDesign',
+          })}
+        />
+        <MainDrawer.Screen
           component={WebVideo}
           name="WebVideo"
           options={buildOptions({
-            name: 'Sink',
+            name: 'Web Video',
             icon: 'select1',
             set: 'AntDesign',
           })}
@@ -82,15 +91,7 @@ const MainNavigation = () => {
             set: 'AntDesign',
           })}
         />
-        <MainDrawer.Screen
-          component={StackAnimations}
-          name="StackAnimations"
-          options={buildOptions({
-            name: 'Basics',
-            icon: 'bulb1',
-            set: 'AntDesign',
-          })}
-        />
+
         <MainDrawer.Screen
           component={ColorPicker}
           name="ColorPicker"
@@ -167,7 +168,7 @@ const MainNavigation = () => {
           component={Onboarding}
           name="Onboarding"
           options={buildOptions({
-            name: 'Big List',
+            name: 'Liquid animation',
             icon: 'ios-color-palette-sharp',
             set: 'Ionicons',
           })}

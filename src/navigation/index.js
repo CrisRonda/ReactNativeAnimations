@@ -1,5 +1,9 @@
 import React from 'react';
-import {DefaultTheme, NavigationContainer} from '@react-navigation/native';
+import {
+  DefaultTheme,
+  NavigationContainer,
+  useNavigationContainerRef,
+} from '@react-navigation/native';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 
 import StackAnimations from './1_Animations';
@@ -16,6 +20,7 @@ import GalleryApp from '@examples/8_GalleryApp/navigation';
 import BigList from '@examples/9_BigList';
 import Onboarding from '@examples/10_LiquidAnimation/screens/Onboarding';
 import WebVideo from '@examples/WebViewVideo';
+import {useFlipper} from '@react-navigation/devtools';
 
 const MainDrawer = createDrawerNavigator();
 const buildOptions = ({name, icon, set}) => ({
@@ -34,9 +39,11 @@ const navTheme = {
 const MainNavigation = () => {
   const {colors, pxToDp} = useTheme();
   const {background, grey, primary, text} = colors;
+  const navRef = useNavigationContainerRef();
+  useFlipper(navRef);
 
   return (
-    <NavigationContainer theme={navTheme}>
+    <NavigationContainer theme={navTheme} ref={navRef}>
       <MainDrawer.Navigator
         initialRouteName="StackAnimations"
         screenOptions={{

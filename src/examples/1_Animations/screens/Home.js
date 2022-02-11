@@ -48,7 +48,9 @@ const Home = () => {
         renderItem={({item}) => (
           <TouchableOpacity onPress={() => onNavigate(item.route)}>
             <View>
-              <Text variant="h3">{item.title}</Text>
+              <Text numberOfLines={1} adjustsFontSizeToFit variant="h3">
+                {item.title}
+              </Text>
             </View>
           </TouchableOpacity>
         )}

@@ -19,9 +19,6 @@ const ScrollAnimation = () => {
   });
   return (
     <>
-      <View style={style.backbutton}>
-        <IconButton name="back" onPress={goBack} />
-      </View>
       <Container
         horizontal
         onScroll={handleScroll}
@@ -29,6 +26,9 @@ const ScrollAnimation = () => {
         pagingEnabled
         showsHorizontalScrollIndicator={false}
         style={style.container}>
+        <View style={style.backbutton}>
+          <IconButton name="back" onPress={goBack} />
+        </View>
         {WORDS.map((title, index) => (
           <Page
             key={title}

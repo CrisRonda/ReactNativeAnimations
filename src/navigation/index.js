@@ -23,9 +23,10 @@ import WebVideo from '@examples/WebViewVideo';
 import {useFlipper} from '@react-navigation/devtools';
 
 const MainDrawer = createDrawerNavigator();
-const buildOptions = ({name, icon, set}) => ({
+const buildOptions = ({name, icon, set, title = 'Screen'}) => ({
   drawerIcon: () => <Icon name={icon} set={set} />,
   drawerLabel: name,
+  title,
 });
 
 const navTheme = {
@@ -65,11 +66,6 @@ const MainNavigation = () => {
           drawerItemStyle: {
             padding: pxToDp(16),
           },
-          header: ({route}) => {
-            if (route.name === 'Video') {
-              return null;
-            }
-          },
         }}>
         <MainDrawer.Screen
           component={StackAnimations}
@@ -78,6 +74,7 @@ const MainNavigation = () => {
             name: 'Basics',
             icon: 'bulb1',
             set: 'AntDesign',
+            title: 'Basics',
           })}
         />
         <MainDrawer.Screen
@@ -87,9 +84,10 @@ const MainNavigation = () => {
             name: 'Web Video',
             icon: 'select1',
             set: 'AntDesign',
+            title: 'WebVideo',
           })}
         />
-        <MainDrawer.Screen
+        {/* <MainDrawer.Screen
           component={SinkScreen}
           name="SinkScreen"
           options={buildOptions({
@@ -97,7 +95,7 @@ const MainNavigation = () => {
             icon: 'select1',
             set: 'AntDesign',
           })}
-        />
+        /> */}
 
         <MainDrawer.Screen
           component={ColorPicker}
@@ -105,6 +103,7 @@ const MainNavigation = () => {
           options={buildOptions({
             name: 'Color Picker',
             icon: 'ios-color-palette-sharp',
+            title: 'ColorPicker',
             set: 'Ionicons',
           })}
         />
@@ -115,6 +114,7 @@ const MainNavigation = () => {
             name: 'Card Transition',
             icon: 'ios-color-palette-sharp',
             set: 'Ionicons',
+            title: 'CardTransition',
           })}
         />
         <MainDrawer.Screen
@@ -124,6 +124,7 @@ const MainNavigation = () => {
             name: 'Yoga',
             icon: 'ios-color-palette-sharp',
             set: 'Ionicons',
+            title: 'Yoga',
           })}
         />
         <MainDrawer.Screen
@@ -133,6 +134,7 @@ const MainNavigation = () => {
             name: 'DVDAnimation',
             icon: 'ios-color-palette-sharp',
             set: 'Ionicons',
+            title: 'DVDAnimation',
           })}
         />
         <MainDrawer.Screen
@@ -142,6 +144,7 @@ const MainNavigation = () => {
             name: 'Video',
             icon: 'ios-color-palette-sharp',
             set: 'Ionicons',
+            title: 'Video',
           })}
         />
         <MainDrawer.Screen
@@ -151,6 +154,7 @@ const MainNavigation = () => {
             name: 'List Animation',
             icon: 'ios-color-palette-sharp',
             set: 'Ionicons',
+            title: 'List Animation',
           })}
         />
         <MainDrawer.Screen
@@ -160,6 +164,7 @@ const MainNavigation = () => {
             name: 'Gallery',
             icon: 'ios-color-palette-sharp',
             set: 'Ionicons',
+            title: 'Gallery App',
           })}
         />
         <MainDrawer.Screen
@@ -169,6 +174,7 @@ const MainNavigation = () => {
             name: 'Big List',
             icon: 'ios-color-palette-sharp',
             set: 'Ionicons',
+            title: 'Big list',
           })}
         />
         <MainDrawer.Screen
@@ -178,6 +184,7 @@ const MainNavigation = () => {
             name: 'Liquid animation',
             icon: 'ios-color-palette-sharp',
             set: 'Ionicons',
+            title: 'Onboarding',
           })}
         />
       </MainDrawer.Navigator>
